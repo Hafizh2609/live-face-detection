@@ -1,7 +1,12 @@
 from streamlit_webrtc import webrtc_streamer
 import av
 from ultralytics import YOLO
-import cv2
+import cv2, os
+from twilio.rest import Client
+account_sid = "AC2d41578652fa01388e8df7cde1cdb17b"
+auth_token = "beebe4092916f445a5bddf56b6682b65"
+client = Client(account_sid, auth_token)
+token = client.tokens.create()
 
 model_face = YOLO('yolov8n-face.pt')
 def video_frame_callback(frame):
@@ -20,4 +25,4 @@ def video_frame_callback(frame):
 
     return av.VideoFrame.from_ndarray(flip_frame, format="bgr24")
 
-webrtc_streamer(key="example", video_frame_callback=video_frame_callback)
+webrtc_streamer(key="example", video_frame_callback=video_frame_callback,rtc_configuration={"iceServers": token.ice_servers})

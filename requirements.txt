@@ -1,2 +1,2 @@
-stremlist-webrtc
+streamlit-webrtc
 utralytics

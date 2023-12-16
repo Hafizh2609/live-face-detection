@@ -3,8 +3,8 @@ import av
 from ultralytics import YOLO
 import cv2, os
 from twilio.rest import Client
-account_sid = "AC3aece90180e2ceea4ac007e3af37b432"
-auth_token = "bb56757265dc44bb500a1cfba28d9e1f"
+account_sid = "SKcc3895fea50a343534f7384ac3912acd"
+auth_token = "8xHkLS8caR7fTOkbeHLpR1EcCIsLFhNH"
 client = Client(account_sid, auth_token)
 token = client.tokens.create()
 
